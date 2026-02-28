@@ -9,6 +9,9 @@ Doraki is a cinematic, interactive platform built for a premium dessert brand. B
 ## 🏗 Architecture Diagram
 The application follows a modern serverless architecture, leveraging React for the view layer and Firebase for real-time data persistence.
 
+<p align="center">
+  <img src="./screenshots/architecture.jpeg" alt="Architecture Diagram" width="800">
+</p>
 
 
 ---
