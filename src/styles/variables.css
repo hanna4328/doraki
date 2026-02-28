@@ -1,0 +1,19 @@
+:root {
+  /* Color Palette */
+  --color-cream-bg: #F4E6D5;
+  --color-soft-beige: #EAD7C2;
+  --color-cocoa-brown: #5A2E1F;
+  --color-primary-gold: #D89A4F;
+  --color-caramel: #C27D38;
+
+  /* Border Radii */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 40px;
+
+  /* Transitions */
+  --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(90, 46, 31, 0.08);
+}

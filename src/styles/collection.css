@@ -1,0 +1,195 @@
+.collection-container {
+  background-color: #F4E6D5; /* Cream Aesthetic */
+  min-height: 100vh;
+  padding-bottom: 150px;
+}
+
+.collection-section {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 10%;
+}
+
+.collection-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+  max-width: 1400px;
+  width: 100%;
+}
+
+.flavor-name {
+  font-family: 'Rafika', serif; /* Brand Typography */
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  color: #5A2E1F;
+  margin-bottom: 30px;
+  line-height: 1;
+}
+
+.flavor-description {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #5A2E1F;
+  opacity: 0.8;
+  margin-bottom: 40px;
+  max-width: 500px;
+}
+
+.flavor-image-wrapper {
+  border-radius: 40px; /* Rounded UI requirement */
+  overflow: hidden;
+  box-shadow: 0 40px 80px rgba(90, 46, 31, 0.15);
+  background: white;
+}
+
+.flavor-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.preorder-btn {
+  background: #D89A4F;
+  color: white;
+  padding: 18px 45px;
+  border-radius: 100px;
+  border: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+}
+.flavor-image-wrapper {
+  transform-style: preserve-3d; /* Required for 3D rotation */
+  transition: box-shadow 0.4s ease;
+  will-change: transform;
+}
+
+.collection-section:hover .flavor-image-wrapper {
+  box-shadow: 0 50px 100px rgba(90, 46, 31, 0.25); /* Increased shadow on hover */
+}
+
+.collection-container {
+  /* Ensure a smooth base color for the transition */
+  background-color: #F4E6D5; 
+}
+/* Minimal Navbar Styles */
+.minimal-nav {
+  position: fixed;
+  top: 40px;
+  left: 60px;
+  z-index: 1000;
+}
+
+.back-home-link {
+  background: none;
+  border: none;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: #5A2E1F;
+  cursor: pointer;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.back-home-link:hover {
+  opacity: 1;
+}
+
+/* Updated Section Layout */
+.flavor-subtitle {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  color: #D89A4F;
+  margin-bottom: 10px;
+}
+
+.collection-container {
+  /* Smooth transition for background shifts */
+  transition: background-color 1s ease;
+  min-height: 100vh;
+}
+.collection-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 30px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(244, 230, 213, 0.8);
+  backdrop-filter: blur(10px); /* Glassmorphism */
+}
+
+.nav-logo {
+  font-family: 'Rafika', serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.2em;
+  color: #5A2E1F;
+  cursor: pointer;
+}
+
+.auth-container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F4E6D5;
+}
+
+.auth-card {
+  background: white;
+  padding: 60px;
+  border-radius: 40px;
+  box-shadow: 0 30px 60px rgba(90, 46, 31, 0.1);
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid #EAD7C2;
+  background: #FDFBF8;
+}
+
+.auth-toggle {
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #D89A4F;
+  cursor: pointer;
+}
+.user-greeting {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #D89A4F;
+  margin-right: 20px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.nav-icon-btn {
+  background: none;
+  border: none;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: #5A2E1F;
+  cursor: pointer;
+  margin-left: 20px;
+  transition: color 0.3s ease;
+}
+
+.nav-icon-btn:hover {
+  color: #D89A4F;
+}

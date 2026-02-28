@@ -1,0 +1,21 @@
+/* src/index.css */
+:root {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  text-align: center; /* This ensures inline elements center within the flex container */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: initial; /* Clears Vite default */
+  min-width: 320px;
+  min-height: 100vh;
+}
