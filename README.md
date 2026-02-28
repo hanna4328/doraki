@@ -57,7 +57,24 @@ npm run build
 ```
 ## 📸Screenshots
 
+<p align="center">
+  <img src="./screenshots/landing.png" alt="Landing Page Screenshot" width="400">
+  <img src="./screenshots/collection.png" alt="Collection Page Screenshot" width="400">
+</p>
+
+<p align="center">
+  <img src="./screenshots/cart.png" alt="Cart Page Screenshot" width="400">
+</p>
+
 ## 🎥Video Demo
 Experience the cinematic walkthrough of the Doraki platform:
 [Watch the doraki Experience on Streamable](https://streamable.com/0n6kis)
+
+## Team Members
+Hanna A
+Gouri Anil
+
+## 📜 License
+
+This project is licensed under the [MIT License](./LICENSE) - see the LICENSE file for details.
 
