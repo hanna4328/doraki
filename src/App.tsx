@@ -1,18 +1,26 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import CinematicStory from './components/cinema/CinematicStory';
 import CollectionPage from './pages/CollectionPage';
 import CartPage from './pages/CartPage';
+import CinematicHero from './components/cinema/CinematicStory';
+import AuthPage from './pages/AuthPage';
 
 function App() {
   return (
-    <Router>
+   <Router>
       <Routes>
-        {/* The Hero content ONLY lives here */}
-        <Route path="/" element={<CinematicStory />} />
+        {/* Landing Page */}
+        <Route path="/" element={<CinematicHero />} />
         
-        {/* These pages will now be clean and only show their own content */}
+        {/* The Missing Route! */}
+        <Route path="/auth" element={<AuthPage />} />
+        
+        {/* Protected Pages */}
         <Route path="/collection" element={<CollectionPage />} />
         <Route path="/cart" element={<CartPage />} />
+        
+        {/* Redirect any unknown routes back home */}
+        <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   );
