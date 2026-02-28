@@ -2,13 +2,8 @@ import React, { useLayoutEffect, useRef, useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-// Line 5: Standard imports for functional logic
 import { onAuthStateChanged, signOut } from 'firebase/auth';
-
-// Line 6: Explicit type-only import for User to satisfy 'verbatimModuleSyntax'
 import type { User } from 'firebase/auth';
-
-// Line 7: Firestore imports
 import { doc, onSnapshot } from 'firebase/firestore';
 
 // Data & Logic Imports
@@ -30,7 +25,7 @@ const CollectionPage: React.FC = () => {
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [cartCount, setCartCount] = useState(0);
 
-  // 1. AUTH & CART LISTENER: Handle User State and Real-time Cart Count
+  // 1. AUTH & CART LISTENER
   useEffect(() => {
     const unsubAuth = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
@@ -50,12 +45,12 @@ const CollectionPage: React.FC = () => {
     return () => unsubAuth();
   }, []);
 
-  // 2. SCROLL RESET: Ensure user starts at the top
+  // 2. SCROLL RESET
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // 3. GSAP: Enhanced Bidirectional Animations
+  // 3. GSAP: Bidirectional Scroll Animations
   useLayoutEffect(() => {
     const ctx = gsap.context(() => {
       const sections = gsap.utils.toArray('.collection-section');
@@ -70,7 +65,7 @@ const CollectionPage: React.FC = () => {
             trigger: section,
             start: "top 85%",
             end: "bottom 15%",
-            toggleActions: "play reverse play reverse", // Reverse on scroll back
+            toggleActions: "play reverse play reverse",
           }
         });
 
@@ -84,7 +79,7 @@ const CollectionPage: React.FC = () => {
           "-=1"
         );
 
-        // Dynamic Background Spectrum Transition
+        // Background color transition based on section
         const colors = ["#F4E6D5", "#EAD7C2", "#E5D1B8"];
         gsap.to(containerRef.current, {
           backgroundColor: colors[i % colors.length],
@@ -101,40 +96,53 @@ const CollectionPage: React.FC = () => {
     }, containerRef);
 
     return () => ctx.revert();
-  }, [SIGNATURE_COLLECTION]);
+  }, []);
 
   const handleLogout = async () => {
-    await signOut(auth);
-    navigate('/');
+    try {
+      await signOut(auth);
+      navigate('/');
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
   };
 
   return (
-    <div ref={containerRef} className="collection-container">
+    <div ref={containerRef} className="collection-container" style={{ transition: 'background-color 0.8s ease' }}>
       
-      {/* MINIMALIST NAVBAR: Fixed the Logo & Auth Bug */}
+      {/* --- THE COMPLETE NAVBAR --- */}
       <nav className="collection-nav">
         <div className="nav-left" onClick={() => navigate('/')}>
           <span className="nav-logo">DORAKI</span>
         </div>
         
         <div className="nav-right">
-          {currentUser ? (
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-              <span className="user-greeting">Hi, {currentUser.displayName || currentUser.email?.split('@')[0]}</span>
-              <button className="nav-icon-btn" onClick={() => navigate('/cart')}>
+          <div className="nav-links-group">
+            <button className="nav-link-text" onClick={() => navigate('/')}>HOME</button>
+            <button className="nav-link-text" onClick={() => navigate('/collection')}>DELICACIES</button>
+            
+            {currentUser && (
+              <button className="nav-link-text" onClick={() => navigate('/cart')}>
                 CART <span className="cart-count">{cartCount}</span>
               </button>
-              <button className="logout-link" onClick={handleLogout}>Logout</button>
-            </div>
-          ) : (
-            <button className="nav-icon-btn" onClick={() => navigate('/auth')}>
-              SIGN IN
-            </button>
-          )}
+            )}
+          </div>
+
+          <div className="nav-auth-group">
+            {currentUser ? (
+              <div className="user-section">
+                <span className="user-greeting">Hi, {currentUser.email?.split('@')[0]}</span>
+                <button className="logout-btn" onClick={handleLogout}>LOGOUT</button>
+              </div>
+            ) : (
+              <button className="login-btn" onClick={() => navigate('/auth')}>LOGIN</button>
+            )}
+          </div>
         </div>
       </nav>
 
-      <main style={{ paddingTop: '120px' }}>
+      {/* --- MAIN CONTENT --- */}
+      <main style={{ paddingTop: '140px' }}>
         {SIGNATURE_COLLECTION.map((flavor, index) => (
           <section key={flavor.id} className="collection-section">
             <div 
@@ -154,7 +162,6 @@ const CollectionPage: React.FC = () => {
                   >
                     Add to Pre-Order
                   </button>
-                  {/* View Details Button Removed per request */}
                 </div>
               </div>
 
