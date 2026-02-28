@@ -4,7 +4,7 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 import { SIGNATURE_COLLECTION } from '../data/flavors';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/navbar';
 
 const CartPage: React.FC = () => {
   const [cartItems, setCartItems] = useState<any[]>([]);

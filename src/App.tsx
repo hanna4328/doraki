@@ -1,5 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import CinematicStory from './components/cinema/CinematicStory';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import CollectionPage from './pages/CollectionPage';
 import CartPage from './pages/CartPage';
 import CinematicHero from './components/cinema/CinematicStory';
